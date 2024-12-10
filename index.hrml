@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Stream</title>
+    <meta name="description" content="ENJOY FREE LIVE IPTV">
+    <meta name="keywords" content="Watch live sports streaming online, including football, basketball, baseball, hockey, and more. Stream your favorite sports teams and events in HD, with no cable subscription required.">
+    <meta name="author" content="Altogether 007">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="00">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css">
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script><style type="text/css">* {user-select: auto !important; -webkit-user-select: auto !important;}</style><input type="hidden" id="inject_idm_text_selection"><style></style>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
+    <style>
+        * {
+            user-select: auto !important;
+            -webkit-user-select: auto !important;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        .video-player {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+            position: sticky;
+            top: 0; /* Stick to the top */
+            z-index: 1000; /* Ensure it stays above other elements */
+        }
+
+        .video-player video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #121212;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .loading {
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .channel-buttons {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .channel-buttons a {
+            background-color: #333;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .channel-buttons a:hover {
+            background-color: #4CAF50;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .channel-buttons a span {
+            color: #ffcc00; /* Text color for channel name */
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .video-player {
+                padding: 10px;
+            }
+
+            .channel-buttons a {
+                width: 80px;
+                height: 80px;
+            }
+
+            .loading {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-player {
+                padding: 5px;
+            }
+
+            .channel-buttons a {
+                width: 70px;
+                height: 70px;
+            }
+
+            .loading {
+                font-size: 14px;
+            }
+
+.player-options {
+    margin-top: 20px;
+    display: inline-block;
+    border: 2px solid #00FFFF;
+    border-radius: 10px;
+    padding: 5px; /* বাড়ানো হয়েছে */
+    box-sizing: border-box; /* এটি নিশ্চিত করবে যে padding এবং border সঠিকভাবে থাকবে */
+}
+
+.player-options a {
+    color: #00FFFF;
+    text-decoration: none;
+    margin: 2px; /* মার্জিন কমানো হয়েছে */
+    display: inline-flex;
+    align-items: center;
+    padding: 2px; /* padding বাড়ানো হয়েছে */
+}
+
+.player-options img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-player">
+        <div id="videoLoading" class="loading" style="display: block;">
+            <p>ভিডিও লোডিং হচ্ছে </p>
+        </div>
+        <video id="videoPlayer" controls="" autoplay="" muted="" playsinline="" crossorigin="" src="blob:http://live-stream.unaux.com/52058da1-4026-4c17-8fd1-4f3188329f64">
+            <source id="videoSource" type="application/vnd.apple.mpegurl" src="">
+        </video>
+        <div class="col-md-12">
+            <center>
+                <marquee class="notice-movies" scrollamount="4" style="margin-top:3px;background:#ff0000;color:white;position:relative;padding:10px;overflow:hidden;font-family:var(--font-secondary);border-radius:7px;">
+                    টিভি চ্যানেল প্লে হতে ৫ থেকে ১০ সেকেন্ড টাইম নিতে পারে। তারপর ও প্লে না হলে চ্যানেল এ ক্লিক করে যে কোনো এক্সট্রানাল প্লেয়ার ক্লিক করলেই সেই প্লেয়ার এর ভিতরে নিয়ে প্লে হবে।
+                </marquee>
+            </center>
+        </div>
+    </div>
+
+    <center>
+        <div class="player-options" id="playerOptions">
+            <h3 style="color: #00FFFF;font-size: 19px;">Open in External Player</h3>
+            <a id="vlcLink" href="vlc://http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/QM0f4M5h/vlc-webp-512-512.webp" alt="VLC Icon">
+            </a>
+            <a id="potplayerLink" href="potplayer://http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/FFMXgPNG/potplayer-webp-256-256.webp" alt="PotPlayer">
+            </a>
+            <a id="iinaLink" href="iina://weblink?url=http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/g0t2YvR5/iina-webp-670-670.webp" alt="IIna">
+            </a>
+            <a id="nplayerLink" href="nplayer://http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/52nx3wP0/nplayer-webp-630-630.webp" alt="Nplayer">
+            </a>
+            <a id="omniplayerLink" href="omniplayer://weblink?url=http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/pdSPNPMM/omniplayer-webp-512-512.webp" alt="Omniplayer">
+            </a>
+            <a id="figplayerLink" href="figplayer://weblink?url=http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/yYTB1mCP/figplayer-webp-512-512.webp" alt="FigPlayer">
+            </a>
+            <a id="infuseLink" href="infuse://x-callback-url/play?url=http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/T3bGB809/infuse-webp-256-256.webp" alt="Infuse">
+            </a>
+            <a id="mxplayerLink" href="intent:http://www.teledunet.com:8080/tdn/tdn/456489.m3u8" target="_blank">
+                <img src="https://i.postimg.cc/0QmRLmC7/mxplayer-webp-512-512.webp" alt="MX Player">
+            </a>
+            <h2 style="font-size: 14px;color: #16697A;">Please wait a moment after clicking the player.</h2>
+        </div>
+    </center>
+
+    <div id="channelLoading" class="loading" style="display: none;">
+        <p>অপেক্ষা করুন চ্যানেল লোড হচ্ছে।</p>
+    </div>
+    <div class="channel-buttons" id="channelList" style="display: flex;">
+        <!-- Channels will be dynamically loaded here -->
+    <a href="#" class="channel-link" data-link="https://webott.viatv.com.np/v0t1/ASportsHD.stream/playlist.m3u8"><span>T10 A sports Live</span></a><a href="#" class="channel-link" data-link="https://rtatv.akamaized.net/Content/HLS/Live/channel(RTA3)/variant.m3u8"><span>RTA Sports HD Ban Vs AFG</span></a><a href="#" class="channel-link" data-link="https://line.4k-beast.co/live/c0:23:8d:96:15:22/44D11F/103145.m3u8"><span>TnT Sports 2 🇧🇩</span></a><a href="#" class="channel-link" data-link="http://41.205.93.154/STARSPORTS1/index.m3u8"><span>Star Sports 1 HD</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/PTVSports.stream/playlist.m3u8"><span>PTV Sports</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/ArySports.stream/playlist.m3u8"><span>A Sports</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/GeoSuper.stream/playlist.m3u8"><span>Geo Super</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/TenSports.stream/playlist.m3u8"><span>Ten Sports PK</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/beINSP11.stream/playlist.m3u8"><span>Bein Sports 1</span></a><a href="#" class="channel-link" data-link="http://125.209.88.166:45793/BRN/beINSP12.stream/playlist.m3u8"><span>Bein Sports 2</span></a><a href="#" class="channel-link" data-link="https://bcovlive-a.akamaihd.net/r2d2c4ca5bf57456fb1d16255c1a535c8/eu-west-1/eu-west-1/6058004203001/profile_2/chunklist.m3u8"><span>MU TV</span></a><a href="#" class="channel-link" data-link="https://bcovlive-a.akamaihd.net/r6b4170ad9e8e4ed49986ecc03bac588b/eu-west-1/6058004203001/playlist.m3u8"><span>MU TV</span></a><a href="#" class="channel-link" data-link="https://line.4k-beast.co/live/c0:23:8d:96:15:22/44D11F/103148.m3u8"><span>TnT Sports 3</span></a><a href="#" class="channel-link" data-link="https://csm-e-eb.csm.tubi.video/csm/extlive/tubiprd01,Fast-Studios-Womens-Sports.m3u8"><span>Fast-Studios-Womens-Sports</span></a><a href="#" class="channel-link" data-link="https://s@d2yxu0gr4ksneg.cloudfront.net/out/v1/ed259f6465634f6382767e23f564e695/index_7.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_3360.m3u8"><span>Redbull TV</span></a><a href="#" class="channel-link" data-link="https://drjpy7suzu4c5.cloudfront.net/out/v1/0c06db0274c04e64ab6ae0450f5fbda8/index.m3u8"><span>Live Sports Football Laliga</span></a><a href="#" class="channel-link" data-link="https://d1xm2jznwi5xzj.cloudfront.net/out/v1/34e0da501a8c4489b713809eb08a9bf3/index_14.m3u8"><span>TYC Sports Play</span></a><a href="#" class="channel-link" data-link="https://bein-esp-xumo.amagi.tv/playlistR720P.m3u8"><span>BeiN Sports Extra</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/134"><span>Ufc~</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/23"><span>Band~ sports 4kk</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/1"><span>Espn~ hd</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/143"><span>ESPN~ 4</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/4"><span>Premiere~ 2 hd</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/6"><span>Premiere~ 3 hd</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/179"><span>PREMIERE~ 6</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/14"><span>Sportv~ 1 HD</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/9"><span>Sportv~ 2 HD</span></a><a href="#" class="channel-link" data-link="http://78.159.122.138:2082/Jvyct679999967DDDF4477/Xpluxxx3333ggghy5t57/28"><span>Sportv~ 3 HD</span></a><a href="#" class="channel-link" data-link="http://m1-max.dns-speedy.com:80/JOSHUAUGO5386/506D4C/101739"><span>SPORTV HD</span></a><a href="#" class="channel-link" data-link="https://drjpy7suzu4c5.cloudfront.net/out/v1/0c06db0274c04e64ab6ae0450f5fbda8/index_6.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://db7g5t2s3y0c9.cloudfront.net/out/v1/1c7f5a41c9934f24916b7ce5d1ea381e/index.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@db7g5t2s3y0c9.cloudfront.net:443/out/v1/1c7f5a41c9934f24916b7ce5d1ea381e/index_7.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@drjpy7suzu4c5.cloudfront.net:443/out/v1/0c06db0274c04e64ab6ae0450f5fbda8/index_7.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@dz6knuujo9z7i.cloudfront.net:443/out/v1/a54d9b3234aa4b61a2d1f475bfad6a58/index_8.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@d2yxu0gr4ksneg.cloudfront.net:443/out/v1/ed259f6465634f6382767e23f564e695/index_7.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@d1c63sglopbuo.cloudfront.net:443/out/v1/b9b23c4adf414582af2f2b480bbefddc/index_7.m3u8"><span>GXR WORLD 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://edge4-moblive.yuppcdn.net/trans1sd/smil:tensports2.smil/playlist.m3u8"><span>Ten Sports 2 HD</span></a><a href="#" class="channel-link" data-link="http://194.26.229.213/matc-futbol-2/index.m3u8?token=Panda"><span>МАТЧ! Футбол2 🇷🇺</span></a><a href="#" class="channel-link" data-link="https://zylotech.xyz/live/1/chunks.m3u8?bongls.com"><span>S LALIGA 🇿🇦</span></a><a href="#" class="channel-link" data-link="http://tv.cloudcdn.online:80/live/00:1A:79:A4:26:62/2977/125442.ts"><span>S LALIGA 🇿🇦</span></a><a href="#" class="channel-link" data-link="http://51.178.65.238/BeinSport/mono.m3u8"><span>Bein Sports 1 France 🇫🇷</span></a><a href="#" class="channel-link" data-link="http://190.92.10.66:4000/play/a003/index.m3u8"><span>ESPN DEPORTES 🇺🇸</span></a><a href="#" class="channel-link" data-link="https://stream2.cinerama.uz/1264/tracks-v1a1/mono.m3u8"><span>Setanta Sports 2 🇷🇺</span></a><a href="#" class="channel-link" data-link="https://stream2.cinerama.uz/1263/tracks-v1a1/mono.m3u8"><span>Setanta Sports 1 🇷🇺</span></a><a href="#" class="channel-link" data-link="https://alpha.tv.online.tm/legacyhls/ch004_720/index.m3u8"><span>Turkmenistan Sport 🇹🇲</span></a><a href="#" class="channel-link" data-link="http://217.174.225.146/legacyhls/ch004_720/index.m3u8"><span>Turkmenistan Sport 🇹🇲</span></a><a href="#" class="channel-link" data-link="http://umka625.megogo.xyz/iptv/Z463DXTQ5XKBFL/19070/index.m3u8"><span>S SPORT 1 🇹🇷</span></a><a href="#" class="channel-link" data-link="http://umka625.megogo.xyz/iptv/Z463DXTQ5XKBFL/19071/index.m3u8"><span>S SPORT 2 🇹🇷</span></a><a href="#" class="channel-link" data-link="http://181.78.105.146:2000/play/a08m/index.m3u8"><span>SKY SPORTS LALIGA 🇲🇽</span></a><a href="#" class="channel-link" data-link="http://190.92.10.66:4000/play/a001/index.m3u8"><span>SKY SPORTS LALIGA 🇲🇽</span></a><a href="#" class="channel-link" data-link="http://181.78.109.49:8000/play/a06r/index.m3u8"><span>SKY SPORTS LALIGA 🇲🇽</span></a><a href="#" class="channel-link" data-link="http://181.78.105.146:8800/play/a07h"><span>SKY SPORTS LALIGA 🇲🇽</span></a><a href="#" class="channel-link" data-link="http://176.65.146.108:8022/play/a07t/index.m3u8"><span>SPORTV + 🇵🇹</span></a><a href="#" class="channel-link" data-link="http://176.65.146.108:8022/play/a06i/index.m3u8"><span>SPORTV2 🇵🇹</span></a><a href="#" class="channel-link" data-link="http://fl2.moveonjoy.com/BEIN_SPORTS/index.m3u8"><span>Bein Sports 🇬🇧</span></a><a href="#" class="channel-link" data-link="http://91.132.74.4:7374/play/a00k/index.m3u8"><span>ARENA PREMIUM LIGA 🇷🇸</span></a><a href="#" class="channel-link" data-link="http://109.105.201.198/ARENASPORT1/video.m3u8?token=test"><span>Arena Sport 1 🇷🇸</span></a><a href="#" class="channel-link" data-link="http://109.105.201.198/ARENASPORT3/video.m3u8?token=test"><span>Arena Sport 3 🇷🇸</span></a><a href="#" class="channel-link" data-link="http://109.105.201.198/ARENASPORT4/video.m3u8?token=test"><span>Arena Sport 4 🇷🇸</span></a><a href="#" class="channel-link" data-link="http://194.143.148.28:8080/MatchFutbol1/mpegts"><span>Футбол 1 HD 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://194.26.229.213/matc-futbol-1/index.m3u8?token=Panda"><span>Футбол 1 HD 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://185.57.68.33/110/mpegts"><span>Матч! Футбол 3 HD 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://stream01.vnet.am/Channel_131/mono.m3u8"><span>Fast Sports 🇦🇲</span></a><a href="#" class="channel-link" data-link="http://82.215.111.227/1263/index.m3u8"><span>Setanta Sports 1 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://82.215.111.227/1264/index.m3u8"><span>Setanta Sports 2 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://158.101.214.187:8080/channel/n112aece8/index.m3u8?q=b8633cb8eb71b49cb814d6ae70ae0c27"><span>Megogo Sports 1 🇺🇦</span></a><a href="#" class="channel-link" data-link="http://eqatmiyg.megogo.xyz/iptv/EBUCGK992DRF6L/20103/index.m3u8"><span>MEGOGO Спорт 2 HD 🇺🇦</span></a><a href="#" class="channel-link" data-link="http://193.106.124.204:8002/play/a01l"><span>PRIMA SPORT 1 🇷🇴</span></a><a href="#" class="channel-link" data-link="http://185.236.229.62:9981/play/a04c"><span>CANAL+ SPORT HD 🇵🇱</span></a><a href="#" class="channel-link" data-link="http://185.236.229.62:9981/play/a05t"><span>CANAL+ SPORT 2 HD 🇵🇱</span></a><a href="#" class="channel-link" data-link="http://178.219.128.68:64889/POLSSPORHD"><span>Polsat SPORT 1 🇵🇱</span></a><a href="#" class="channel-link" data-link="http://178.219.128.68:64889/POLSSPORNEWSHD"><span>Polsat Sport NEWS 🇵🇱</span></a><a href="#" class="channel-link" data-link="http://93.189.224.246:52900/play/a005/index.m3u8"><span>Беларусь 5 (HD) 🇧🇾</span></a><a href="#" class="channel-link" data-link="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr.m3u8"><span>TV1 🇪🇸</span></a><a href="#" class="channel-link" data-link="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_720.m3u8"><span>TV1 🇪🇸</span></a><a href="#" class="channel-link" data-link="http://185.189.225.157/EuroSport1/index.m3u8"><span>EUROSPORT 1 🇪🇸</span></a><a href="#" class="channel-link" data-link="http://185.189.225.157/EuroSport2/index.m3u8"><span>EUROSPORT 2 🇪🇸</span></a><a href="#" class="channel-link" data-link="https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/bitrate_3.m3u8"><span>REAL MADRID TV 🇪🇸</span></a><a href="#" class="channel-link" data-link="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra-en-espanol/playlist.m3u8"><span>BEIN SPORT EXTRA Ñ 🇪🇸</span></a><a href="#" class="channel-link" data-link="https://bein-esp-xumo.amagi.tv/playlistR1080p.m3u8"><span>BEIN SPORT EXTRA Ñ 🇪🇸</span></a><a href="#" class="channel-link" data-link="http://hzcdn.vood.top:80/hls/309458_.m3u8"><span>ESPN VIVO 🇦🇷</span></a><a href="#" class="channel-link" data-link="http://streamsy.online:2999/korrigan17/25AUFBdqOi/93"><span>Fox Sports 2 🇦🇷</span></a><a href="#" class="channel-link" data-link="http://streamsy.online:2999/korrigan17/25AUFBdqOi/100"><span>Fox Sports 3 🇦🇷</span></a><a href="#" class="channel-link" data-link="https://tv91.hostingnuclear.com:19360/telecosta/telecosta.m3u8"><span>TELECOSTA GUATEMALA 🇬🇹</span></a><a href="#" class="channel-link" data-link="https://stream.ads.ottera.tv/playlist.m3u8?network_id=7357"><span>TIGO SPORTS 🇨🇷</span></a><a href="#" class="channel-link" data-link="http://181.78.105.146:2000/play/a08j/index.m3u8"><span>TUDN 🇲🇽</span></a><a href="#" class="channel-link" data-link="https://stream.ads.ottera.tv/playlist.m3u8?network_id=3010"><span>ITV DEPORTES 🇲🇽</span></a><a href="#" class="channel-link" data-link="https://nbculocallive.akamaized.net/hls/live/2037499/puertorico/stream1/master.m3u8"><span>TELEMUNDO 🇲🇽</span></a><a href="#" class="channel-link" data-link="http://212.102.60.231/TSN_1/index.m3u8"><span>TSN 1 🇨🇦</span></a><a href="#" class="channel-link" data-link="http://212.102.60.231/TSN_2/index.m3u8"><span>TSN 2 🇨🇦</span></a><a href="#" class="channel-link" data-link="http://212.102.60.231/TSN_3/index.m3u8"><span>TSN 3 🇨🇦</span></a><a href="#" class="channel-link" data-link="http://212.102.60.231/TSN_4/index.m3u8"><span>TSN 4 🇨🇦</span></a><a href="#" class="channel-link" data-link="http://212.102.60.231/TSN_5/index.m3u8"><span>TSN 5 🇨🇦</span></a><a href="#" class="channel-link" data-link="https://fl2.moveonjoy.com/CBS_SPORTS_NETWORK/index.m3u8"><span>CBS SPORT 🇺🇸</span></a><a href="#" class="channel-link" data-link="http://212.102.60.10/FOX_Sports_1/index.m3u8"><span>FS 1 SPORT 🇺🇸</span></a><a href="#" class="channel-link" data-link="http://fl2.moveonjoy.com/FOX_Sports_1/index.m3u8"><span>FS 1 SPORT 🇺🇸</span></a><a href="#" class="channel-link" data-link="http://78.130.250.2:8023/play/a009/index.m3u8"><span>NOVA Sport 1 🇨🇿</span></a><a href="#" class="channel-link" data-link="http://78.130.250.2:8023/play/a02k/index.m3u8"><span>NOVA Sport 1 🇨🇿</span></a><a href="#" class="channel-link" data-link="http://78.130.250.2:8023/play/a004/index.m3u8"><span>NOVA Sport 2 🇨🇿</span></a><a href="#" class="channel-link" data-link="http://cdn.ottshow.net:80/kanaliURedirect2442/kd0dk39dkyxs0A/81189"><span>NovaSports 2 🇨🇿</span></a><a href="#" class="channel-link" data-link="http://146.59.85.40:89/novasport2/mono.m3u8"><span>NovaSports 2 🇨🇿</span></a><a href="#" class="channel-link" data-link="https://ts0-pl.tv.itself.cz/hls/master/live.m3u8?channel=727&amp;device=2b6073bc96d57891dc6410d6ab150035&amp;stream_profiles=profile11,profile12,profile13&amp;changed_at=1726643016"><span>SPORT 1 🇨🇿</span></a><a href="#" class="channel-link" data-link="https://ts0-pl.tv.itself.cz/hls/master/live.m3u8?channel=729&amp;device=2b6073bc96d57891dc6410d6ab150035&amp;stream_profiles=profile11,profile12,profile13&amp;changed_at=1726643016"><span>SPORT 2 🇨🇿</span></a><a href="#" class="channel-link" data-link="http://78.130.250.2:8023/play/a02o/index.m3u8"><span>ARENA Sport 1 🇨🇿</span></a><a href="#" class="channel-link" data-link="https://ts0-pl.tv.itself.cz/hls/master/live.m3u8?channel=2120&amp;device=2b6073bc96d57891dc6410d6ab150035&amp;stream_profiles=profile11,profile12,profile13&amp;changed_at=172664301"><span>RTVS Sport 🇨🇿</span></a><a href="#" class="channel-link" data-link="https://ts0-pl.tv.itself.cz/hls/master/live.m3u8?channel=2164&amp;device=2b6073bc96d57891dc6410d6ab150035&amp;stream_profiles=profile11,profile12,profile13&amp;changed_at=172664301"><span>JOJ Sport 🇨🇿</span></a><a href="#" class="channel-link" data-link="https://rgelive.akamaized.net/hls/live/2043151/radiolive/playlist.m3u8"><span>Sport5 🇮🇱</span></a><a href="#" class="channel-link" data-link="https://stream1.cinerama.uz/1229/tracks-v1a1/mono.m3u8"><span>Viju+ Sport 🇷🇺</span></a><a href="#" class="channel-link" data-link="https://stream1.cinerama.uz/1049/tracks-v1a1/mono.m3u8"><span>Матч! Планета 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://streaming.astrakhan.ru/astrakhanrusporthd/tracks-v3a1/index.m3u8"><span>SPORT RU 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://iptv.prosto.tv:7000/ch109/video.m3u8"><span>X SPORT 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://iptv-hls.idc.md:8200/hls/77/live1.m3u8"><span>ТЕЛЕКАНАЛ ФУТБОЛ 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://88.218.242.237:8000/play/a00d"><span>СТАРТ ТРИУМФ 🇷🇺</span></a><a href="#" class="channel-link" data-link="http://217.174.225.146/hls/ch004_720/index.m3u8"><span>Turkmenistan Sport 🇹🇲</span></a><a href="#" class="channel-link" data-link="https://stream1.cinerama.uz/1004/index.m3u8"><span>UZ SPORT 🇺🇿</span></a><a href="#" class="channel-link" data-link="http://vip.torktv.org:2095/live/zgr2553/zgr.dnm2/5849.ts"><span>BEIN SPORT CANLI 🇹🇷</span></a><a href="#" class="channel-link" data-link="http://live.sportstv.com.tr/hls/low/sportstv_fhd/index.m3u8"><span>SPORTS TV 🇹🇷</span></a><a href="#" class="channel-link" data-link="http://195.24.90.119:800/play/a0b3"><span>Ring 🇧🇬</span></a><a href="#" class="channel-link" data-link="http://45.65.112.49:8000/play/a0ns"><span>ACISPORT TV 🇮🇹</span></a><a href="#" class="channel-link" data-link="http://46.232.186.35:35001/play/a01k"><span>SPORT ITALIA 🇮🇹</span></a><a href="#" class="channel-link" data-link="http://46.232.186.35:35001/play/a037"><span>SPORT ITALIA 🇮🇹</span></a><a href="#" class="channel-link" data-link="https://jmp2.uk/sam-FRBC4200004XH.m3u8"><span>L'Equipe Live 1 🇫🇷</span></a><a href="#" class="channel-link" data-link="https://jmp2.uk/sam-FRBC4200005X2.m3u8"><span>L'Equipe Live 2 🇫🇷</span></a><a href="#" class="channel-link" data-link="http://212.102.60.80/Infosport/index.m3u8"><span>INFOSPORT 🇫🇷</span></a><a href="#" class="channel-link" data-link="https://jmp2.uk/sam-ATBD26000124P.m3u8"><span>Scooore 🇩🇪</span></a><a href="#" class="channel-link" data-link="https://s@d1yz7zmm8mka3t.cloudfront.net:443/out/v1/cad8af14714e4affa48e07d2f48ebf5f/index_7.m3u8"><span>GXR 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://s@dx12yig2oz0vp.cloudfront.net:443/out/v1/48bb590edb2f4bcd91e0ab46950bf94a/index_5.m3u8"><span>GXR 🇮🇳</span></a><a href="#" class="channel-link" data-link="http://15.235.181.35/live.ts?channelId=132374&amp;uid=14505&amp;deviceMac=00:1A:79:A7:53:75&amp;id=18sports3"><span>SPORT 18 (3) 🇮🇳</span></a><a href="#" class="channel-link" data-link="https://cdn09jtedge.indihometv.com/joss/133/beib1/index.m3u8"><span>SPOTV 🇲🇾</span></a><a href="#" class="channel-link" data-link="https://cdn09jtedge.indihometv.com/joss/133/beib2/index.m3u8"><span>SPOTV 2 🇲🇾</span></a><a href="#" class="channel-link" data-link="https://cdn.elsalvadordigital.com:1936/wowtv/smil:wowtv.smil/playlist.m3u8"><span>WOW TV EL SALVADOR 🇸🇻</span></a><a href="#" class="channel-link" data-link="http://manik@15.235.181.35/live.ts?channelId=129136&amp;uid=14505&amp;deviceMac=00:1A:79:A7:53:75&amp;id=nowprem1"><span>NOW SPORT 1 🇭🇰</span></a><a href="#" class="channel-link" data-link="http://37.27.111.214:8080/live/13/hls.m3u8"><span>Sport A 🇨🇳</span></a><a href="#" class="channel-link" data-link="http://37.27.111.214:8080/live/14/hls.m3u8"><span>Sport B 🇨🇳</span></a><a href="#" class="channel-link" data-link="http://37.27.111.214:8080/live/15/hls.m3u8"><span>Sport C 🇨🇳</span></a><a href="#" class="channel-link" data-link="http://unlimited6-cl.dps.live/sportinghd/sportinghd.smil/playlist.m3u8"><span>TELETRAK 🇨🇱</span></a><a href="#" class="channel-link" data-link="https://httpcache0-00688-cacheliveedge0.dna.qbrick.com/00688-cacheliveedge0/out/u/atg_sdi_1_free_3.m3u8"><span>ATG1 🇸🇪</span></a><a href="#" class="channel-link" data-link="https://d3qg0hadt0dkov.cloudfront.net/amgtennisus/playlist1080_p.m3u8"><span>TENNIS</span></a><a href="#" class="channel-link" data-link="https://d3qg0hadt0dkov.cloudfront.net:443/amgtennisus/playlist1080_p.m3u8"><span>TENNIS</span></a><a href="#" class="channel-link" data-link="http://www.teledunet.com:8080/tdn/tdn/456489.m3u8"><span>Bien sport 3 🇶🇦</span></a><a href="#" class="channel-link" data-link="http://kstv.us:8080/live/jgarcia31/224178522/48445.m3u8"><span>ELEVEN SPORTS 3 HD 🇵🇹</span></a><a href="#" class="channel-link" data-link="https://cloudserve.world/live/stream_6.m3u8"><span>S CHAMPIONS 🇿🇦</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/1/chunks.m3u8?bongls.com"><span>LIVE 1 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/2/chunks.m3u8?bongls.com"><span>LIVE 2 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/3/chunks.m3u8?bongls.com"><span>LIVE 3 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/4/chunks.m3u8?bongls.com"><span>LIVE 4 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/5/chunks.m3u8?bongls.com"><span>LIVE 5 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/6/chunks.m3u8?bongls.com"><span>LIVE 6 🇪🇺</span></a><a href="#" class="channel-link" data-link="https://cheapmdhal.lol/live/7/chunks.m3u8?bongls.com"><span>LIVE 7 🇪🇺</span></a><a href="#" class="channel-link" data-link="http://www.teledunet.com:8080/tdn/tdn/456487.m3u8"><span>Bien sport 1 🇶🇦</span></a><a href="#" class="channel-link" data-link="http://kstv.us:8080/live/jgarcia31/224178522/48443.m3u8"><span>ELEVEN 1 🇵🇹</span></a><a href="#" class="channel-link" data-link="http://109.61.81.147:2080/cdn2/5054/video.m3u8?token=4444"><span>TNT SPORT 4 🇬🇧</span></a><a href="#" class="channel-link" data-link="http://kstv.us:8080/live/jgarcia31/224178522/48446.m3u8"><span>ELEVEN 4 🇵🇹</span></a><a href="#" class="channel-link" data-link="https://848b3516657c-usatv.baby-beamup.club/public/m3u/66.m3u8"><span>TUDN USA 🇺🇸</span></a><a href="#" class="channel-link" data-link="http://23.237.66.106:25461/now_160322/now2.php?id=UNIMASMIAMI&amp;calidad=hd&amp;.m3u8"><span>Unimas Miami 🇲🇽🇺🇸</span></a><a href="#" class="channel-link" data-link="https://helga.iptv2022.com/sh/trt_1/index.m3u8"><span>TRT 1 🇹🇷</span></a><a href="#" class="channel-link" data-link="http://tv.cloudcdn.me:80/live.ts?channelId=289&amp;uid=7245&amp;deviceMac=00:1A:79:B0:A9:0C"><span>Sony Ten 1 HD 🇮🇳</span></a><a href="#" class="channel-link" data-link="http://190.102.246.93:9005/play/a00x"><span>ESPN PREMIUM 🇦🇷</span></a><a href="#" class="channel-link" data-link="http://190.102.246.93:9005/play/a029"><span>ESPN 2 🇨🇴</span></a><a href="#" class="channel-link" data-link="http://190.102.246.93:9005/play/a02l"><span>ESPN 3 🇨🇴</span></a><a href="#" class="channel-link" data-link="http://190.102.246.93:9005/play/a019"><span>ESPN 4 🇨🇴</span></a><a href="#" class="channel-link" data-link="http://190.102.246.93:9005/play/a02m"><span>ESPN 6 🇨🇴</span></a><a href="#" class="channel-link" data-link="http://181.78.27.128:8000/play/a062/index.m3u8"><span>FOX SPORT 🇦🇷</span></a><a href="#" class="channel-link" data-link="https://848b3516657c-usatv.baby-beamup.club/public/m3u/308.m3u8"><span>CBS SPORT 🇺🇸</span></a><a href="#" class="channel-link" data-link="http://109.61.81.147:2080/cdn2/559/video.m3u8?token=4444"><span>TNT SPORT 1 🇬🇧</span></a><a href="#" class="channel-link" data-link="http://109.61.81.147:2080/cdn2/560/video.m3u8?token=4444"><span>TNT SPORT 2 🇬🇧</span></a><a href="#" class="channel-link" data-link="http://109.61.81.147:2080/cdn2/295/video.m3u8?token=4444"><span>TNT SPORT 3 🇬🇧</span></a><a href="#" class="channel-link" data-link="http://168.227.131.66:8000/play/tfc0/index.m3u8"><span>ESPN 🇦🇷</span></a><a href="#" class="channel-link" data-link="https://stream.ads.ottera.tv/playlist.m3u8?network_id=1545"><span>Real Madrid TV 🇪🇸</span></a></div>
+
+    <script>
+        function _0x2edf(){const _0x500403=['addEventListener','vlc://','6771pmdqRu','1605880HUYJVq','flex','attachMedia','push','href','hls','application/vnd.apple.mpegurl','isSupported','name','querySelectorAll','http','videoLoading','loadSource','omniplayerLink','preventDefault','src','match','channelList','intent:','forEach','757904iHbVCU','314322IOhOQk','getElementById','startsWith','figplayerLink','add','#EXTINF','none','appendChild','display','DOMContentLoaded','getAttribute','block','style','textContent','vlcLink','1814284QrNbOT','classList','https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/mastiii/2389b3e7-0beb-4c5f-916a-138cf6deaa07/3.m3u8','videoPlayer','mxplayerLink','url','https://raw.githubusercontent.com/manikiptv/freecatv.github.io/refs/heads/main/freecatv.m3u8','2922762vIowSf','potplayer://','channel-link','iina://weblink?url=','iinaLink','36mNTBiO','playing','createElement','figplayer://weblink?url=','then','play','trim','2224695fuVRDP','split','omniplayer://weblink?url=','data-link'];_0x2edf=function(){return _0x500403;};return _0x2edf();}function _0x7bff(_0x416375,_0x43b64e){const _0x2edf72=_0x2edf();return _0x7bff=function(_0x7bff14,_0x390852){_0x7bff14=_0x7bff14-0x17c;let _0x186c53=_0x2edf72[_0x7bff14];return _0x186c53;},_0x7bff(_0x416375,_0x43b64e);}const _0xe7ec41=_0x7bff;(function(_0x5a1859,_0x5ab80c){const _0x296975=_0x7bff,_0x222857=_0x5a1859();while(!![]){try{const _0x3a545c=-parseInt(_0x296975(0x1a0))/0x1*(parseInt(_0x296975(0x193))/0x2)+parseInt(_0x296975(0x1b6))/0x3+parseInt(_0x296975(0x187))/0x4+parseInt(_0x296975(0x19a))/0x5+-parseInt(_0x296975(0x18e))/0x6+parseInt(_0x296975(0x1b5))/0x7+-parseInt(_0x296975(0x1a1))/0x8;if(_0x3a545c===_0x5ab80c)break;else _0x222857['push'](_0x222857['shift']());}catch(_0x379d97){_0x222857['push'](_0x222857['shift']());}}}(_0x2edf,0x49af8));const video=document['getElementById'](_0xe7ec41(0x18a)),videoLoading=document['getElementById'](_0xe7ec41(0x1ac)),channelLoading=document[_0xe7ec41(0x1b7)]('channelLoading'),channelList=document[_0xe7ec41(0x1b7)](_0xe7ec41(0x1b2));video[_0xe7ec41(0x19e)]('waiting',function(){const _0x388f8d=_0xe7ec41;videoLoading[_0x388f8d(0x184)][_0x388f8d(0x180)]=_0x388f8d(0x183);}),video[_0xe7ec41(0x19e)](_0xe7ec41(0x194),function(){const _0x5d9dad=_0xe7ec41;videoLoading[_0x5d9dad(0x184)][_0x5d9dad(0x180)]=_0x5d9dad(0x17e);}),document[_0xe7ec41(0x19e)](_0xe7ec41(0x181),function(){const _0x513677=_0xe7ec41,_0x2f2f7d=_0x513677(0x189);loadVideo(_0x2f2f7d),loadChannels();});function loadVideo(_0x5b850a){const _0x27ee8c=_0xe7ec41;document[_0x27ee8c(0x1b7)](_0x27ee8c(0x186))[_0x27ee8c(0x1a5)]=_0x27ee8c(0x19f)+_0x5b850a,document[_0x27ee8c(0x1b7)]('potplayerLink')[_0x27ee8c(0x1a5)]=_0x27ee8c(0x18f)+_0x5b850a,document[_0x27ee8c(0x1b7)](_0x27ee8c(0x192))[_0x27ee8c(0x1a5)]=_0x27ee8c(0x191)+_0x5b850a,document[_0x27ee8c(0x1b7)]('nplayerLink')['href']='nplayer://'+_0x5b850a,document[_0x27ee8c(0x1b7)](_0x27ee8c(0x1ae))[_0x27ee8c(0x1a5)]=_0x27ee8c(0x19c)+_0x5b850a,document[_0x27ee8c(0x1b7)](_0x27ee8c(0x1b9))[_0x27ee8c(0x1a5)]=_0x27ee8c(0x196)+_0x5b850a,document[_0x27ee8c(0x1b7)]('infuseLink')[_0x27ee8c(0x1a5)]='infuse://x-callback-url/play?url='+_0x5b850a,document[_0x27ee8c(0x1b7)](_0x27ee8c(0x18b))[_0x27ee8c(0x1a5)]=_0x27ee8c(0x1b3)+_0x5b850a;if(Hls[_0x27ee8c(0x1a8)]()){window['hls']&&window[_0x27ee8c(0x1a6)]['destroy']();var _0x49d39d=new Hls();_0x49d39d[_0x27ee8c(0x1ad)](_0x5b850a),_0x49d39d[_0x27ee8c(0x1a3)](video),window[_0x27ee8c(0x1a6)]=_0x49d39d;}else video['canPlayType'](_0x27ee8c(0x1a7))&&(video[_0x27ee8c(0x1b0)]=_0x5b850a);video[_0x27ee8c(0x198)]();}function loadChannels(){setTimeout(()=>{const _0x57e874=_0x7bff;fetch(_0x57e874(0x18d))['then'](_0x6ee4ac=>_0x6ee4ac['text']())[_0x57e874(0x197)](_0x1a902d=>{const _0xfdd29=_0x57e874,_0x30820a=_0x1a902d[_0xfdd29(0x19b)]('\x0a');let _0x11c255=[],_0x553652={};_0x30820a['forEach'](_0xfe8c96=>{const _0x5c8241=_0xfdd29;if(_0xfe8c96[_0x5c8241(0x1b8)](_0x5c8241(0x17d))){const _0x26dbe0=_0xfe8c96[_0x5c8241(0x1b1)](/,(.*)/);_0x26dbe0&&(_0x553652[_0x5c8241(0x1a9)]=_0x26dbe0[0x1]);}else _0xfe8c96['startsWith'](_0x5c8241(0x1ab))&&(_0x553652[_0x5c8241(0x18c)]=_0xfe8c96[_0x5c8241(0x199)](),_0x11c255[_0x5c8241(0x1a4)](_0x553652),_0x553652={});}),_0x11c255['forEach'](_0x7f708e=>{const _0x36bb36=_0xfdd29,_0x5dad97=document[_0x36bb36(0x195)]('a');_0x5dad97[_0x36bb36(0x1a5)]='#',_0x5dad97[_0x36bb36(0x188)][_0x36bb36(0x17c)](_0x36bb36(0x190)),_0x5dad97['setAttribute'](_0x36bb36(0x19d),_0x7f708e[_0x36bb36(0x18c)]);const _0x4c6f89=document[_0x36bb36(0x195)]('span');_0x4c6f89[_0x36bb36(0x185)]=_0x7f708e[_0x36bb36(0x1a9)],_0x5dad97[_0x36bb36(0x17f)](_0x4c6f89),channelList['appendChild'](_0x5dad97);}),channelLoading[_0xfdd29(0x184)][_0xfdd29(0x180)]=_0xfdd29(0x17e),channelList[_0xfdd29(0x184)]['display']=_0xfdd29(0x1a2),document[_0xfdd29(0x1aa)]('.channel-link')[_0xfdd29(0x1b4)](function(_0x57473b){_0x57473b['addEventListener']('click',function(_0x2676fd){const _0x19d920=_0x7bff;_0x2676fd[_0x19d920(0x1af)]();const _0x3a6ace=this[_0x19d920(0x182)]('data-link');loadVideo(_0x3a6ace);});});});},0x3e8);}
+    </script>
+
+
+
+</body></html>
